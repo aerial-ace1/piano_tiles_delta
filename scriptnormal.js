@@ -5,6 +5,13 @@ var score;
 var key = {1:'A1',2:'A2',3:'A3',4:'A4',5:'B1',6:'B2',7:'B3',8:'B4',9:'C1',10:'C2',11:'C3',12:'C4',13:'D1',14:'D2',15:'D3',16:'D4'}
 
 
+function play(tile){
+    tile.target.classList.add('boxclick');
+    tile.target.classList.remove('boxhover');
+    tile.target.addEventListener('transitionend', function(e) {
+        e.target.classList.remove('boxclick');
+    });
+}
  
 function tplay(tile){
     tile.classList.add('boxclick');
@@ -15,14 +22,13 @@ function tplay(tile){
 
 function generateTile (iterator, tileArray){
     
-    console.log("a");
     for (let i=0; i<iterator;i++){
         code = (Math.floor(Math.random() * Object.keys(tileArray).length) +1);
         toplay = document.querySelector(`[data-key="${key[code]}"`)
         tplay(toplay);
+        //Delay to add
         tileArray[key[code]]+=1;
     }
-    console.log(tileArray);
 }
 
 function generateTrack () {
@@ -43,16 +49,30 @@ function checkTiles ( code , input){
 }
 
 function round(roundNo){
-    tilestrokes = generateTrack();
-    generateTile(roundNo , tilestrokes)
+    playbut.setAttribute('disabled','');
+    playbut,innerHTML='Playing.....'
+    tiles.forEach(tile => tile.removeEventListener('click',play));
+
+    tileStrokes = generateTrack();
+    userStrokes = generateTrack();
+    generateTile(roundNo , tileStrokes)
+    
+    //Add user input
+    tiles.forEach(tile => tile.addEventListener("click", function(e){
+        clickedTile = e.target.getAttribute('data-key');
+        userStrokes[clickedTile] += 1;
+    }))
 }
 
 playbut.addEventListener('click',startgame);
+tiles.forEach(tile => tile.addEventListener('click',play));
 
 function startgame(e){
-    e.target.innerHTML='Restart';
-    counter = 1;
+    counter = 0;
     score = 0;
-    round(counter);
+
+    //loop over
+    counter += 1;
+    outcome = round(counter);
 }
 
