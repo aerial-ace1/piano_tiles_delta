@@ -1,10 +1,9 @@
 html{
     background: url('./background.jpg');
     color: white;
-}
+    margin: 0px;
+    padding: 0px;
 
-body{
-    margin: 10px;
 }
 
 .navbar{
@@ -19,13 +18,90 @@ body{
     font-size: 30px;
 
     display: flex;
+    flex: 1;
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: center;
     align-content: center;
 }
 
-div a{
+.navbar div a{
     color: white;
     text-decoration: none;
+    transition: all 0.6 ease-out;
+}
+
+
+.navbar div a:hover {
+    text-decoration: underline;
+  }
+  
+.navbar div a:active {
+    text-decoration: underline;
+}
+
+
+#gamegrid{
+
+    width: min-content;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    margin: 10px;
+    padding: 10px;
+    justify-content: center;
+    position: relative;
+    left: 35%;
+}
+
+.tile{
+    border: .4rem solid black;
+    border-radius: .5rem;
+    width: 5rem;
+    font-size: 1.5rem;
+    padding: 1rem .5rem;
+    transition: all 0.8s ease;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.5);
+}
+
+.boxclick {
+    background: white;
+    transform: scale(1.1);
+    color: black;
+}
+
+.boxhover{
+    background: gray;
+}
+
+#playbox{
+    width:auto;
+    height: 90px;
+    padding: 10px;
+    margin: 10px;
+
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#play{
+    justify-content: center;
+    border: .4rem solid black;
+    border-radius: .5rem;
+    height: 45px;
+    width: 130px;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    transition: all 0.75s ease;
+}
+
+
+.playhover{
+    transform: scale(1.2);
+    background: whitesmoke;
+    color: black;
+    
 }
