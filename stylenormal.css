@@ -19,7 +19,7 @@ html{
 
     display: flex;
     flex: 1;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     align-content: center;
