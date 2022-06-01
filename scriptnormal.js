@@ -33,8 +33,8 @@ function generateTile (iterator, tileArray){
     for (let i=0; i<iterator;i++){
         code = (Math.floor(Math.random() * Object.keys(tileArray).length) +1);
         let toplay = document.querySelector(`[data-key="${key[code]}"`);
-        tplay(toplay);
-        
+        let j = (i*1000) + 1000;
+        setTimeout( ()=>{tplay(toplay);}, j);
         tileArray[key[code]]+=1;
     }
     return 0;
