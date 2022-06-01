@@ -50,7 +50,7 @@ html{
     padding: 10px;
     justify-content: center;
     position: relative;
-    left: 37.5%;
+    left: 35%;
     height: 50vh;
     width: 25vw;
 }
@@ -84,12 +84,13 @@ html{
     margin: 10px;
 
     display: flex;
-    align-items: center;
+    flex-flow: column;
+    align-items:center;
     align-content: center;
     justify-content: center;
 }
 
-#play{
+#play,#scrbut{
     justify-content: center;
     border: .4rem solid black;
     border-radius: .5rem;
@@ -98,7 +99,7 @@ html{
     width: 130px;
     color: white;
     background: rgba(0,0,0,0.5);
-    transition: all 0.75s ease;
+    transition: all 0.75s ease;  
 }
 
 
@@ -111,9 +112,9 @@ html{
 
 
 #nextbox{
-    position: fixed;
+    position: absolute;
     left: 25%;
-    background: rgba(228, 220, 220, 0.628);
+    background: rgba(245, 245, 245, 0.731);
     border: .4rem solid black;
     text-shadow: 0 0 .5rem black;
     

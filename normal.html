@@ -19,9 +19,10 @@
     <br>
     
     <div id="nextbox">
-        <button id="next">
-          Next Round
-        </button>
+        <span id="exclaim"></span>
+        
+        <button id="next" onclick="crossroads()"></button>
+
     </div>
     
     <section id="gamegrid">
@@ -90,8 +91,10 @@
       <button id="play">
         Play
       </button>
+      <br>
+      <br>
+      <button disabled id="scrbut">Score: <span id="scr"></span></button>
     </section>
-    <section>score = <div id="scr"></div></section>
 
     <section id="How_to_Play">How to play</section>
     <script src="scriptnormal.js"></script>
