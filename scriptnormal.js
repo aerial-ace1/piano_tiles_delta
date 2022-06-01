@@ -104,7 +104,7 @@ tiles.forEach(tile => tile.addEventListener('click',play));
 function startgame(e){
     counter = 2;
     score = 0;
-    socringBoard.innerHTML = score;
+    document.getElementById("scr").innerHTML = `${score}`;
     //loop over
     counter += 1;
     roundOver = false;

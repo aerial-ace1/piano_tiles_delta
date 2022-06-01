@@ -50,7 +50,9 @@ html{
     padding: 10px;
     justify-content: center;
     position: relative;
-    left: 35%;
+    left: 37.5%;
+    height: 50vh;
+    width: 25vw;
 }
 
 .tile{
@@ -91,6 +93,7 @@ html{
     justify-content: center;
     border: .4rem solid black;
     border-radius: .5rem;
+    text-shadow: 0 0 .5rem black;
     height: 45px;
     width: 130px;
     color: white;
@@ -105,3 +108,24 @@ html{
     color: black;
     
 }
+
+
+#nextbox{
+    position: fixed;
+    left: 25%;
+    background: rgba(228, 220, 220, 0.628);
+    border: .4rem solid black;
+    text-shadow: 0 0 .5rem black;
+    
+    box-shadow: 2px #0f0f0f;
+    height: 70vh;
+    width: 50vw;
+    z-index: 2;
+    
+    display: none;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+
