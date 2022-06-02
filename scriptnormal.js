@@ -11,7 +11,14 @@ var tileStrokes;
 var userStrokes;
 var outcome;
 var roundOver = false;
-var key = {1:'A1',2:'A2',3:'A3',4:'A4',5:'B1',6:'B2',7:'B3',8:'B4',9:'C1',10:'C2',11:'C3',12:'C4',13:'D1',14:'D2',15:'D3',16:'D4'}
+var key ={};
+
+// Genrating Key for list of tiles.
+for (let i=0; i<tiles.length;i++){
+    key[i+1]=tiles[i].getAttribute('data-key');
+}
+console.log(key);
+
 
 
 //Function which activates click animation of tile given tile or tile.event
@@ -55,6 +62,7 @@ function generateTile (iterator, tileArray){
         setTimeout( ()=>{play(toplay);}, j);
         tileArray[key[code]]+=1;
     }
+    console.log(tileArray);
     return 0;
 }
 
@@ -68,15 +76,17 @@ function checkTiles ( code , input){
 }
 
 
-
+// Function which is fired upon listening for user input
 function userInput(e){
 
+    //Adds tile to list of input from user
     play(e);
     clickedTile = e.target.getAttribute('data-key');
     userStrokes[clickedTile] += 1;
     selected += 1;
     console.log(selected);
 
+    //Checks if number of input tiles is reached and launches a win/loss based on if the pattern matches or not
     if (selected === counter){
         tiles.forEach(tile => tile.removeEventListener("click", userInput));
         outcome = checkTiles(tileStrokes,userStrokes);
@@ -86,11 +96,11 @@ function userInput(e){
         else if (outcome ===false) {
             loss();
         }
-
         return 0;
     }
 }
 
+// Win function updates score, allows user to go to next level
 function win(){
     score += counter*10;
     counter +=1;
@@ -98,63 +108,59 @@ function win(){
     overlayPage();
     document.getElementById('exclaim').innerHTML = 'Yay!'
     document.getElementById('scr').innerHTML = `${score}`;
-    nextLevel.innerHTML = 'Next Level';
+    playbut.innerHTML = 'Next Level';
+    playbut.disabled = false;
 }
 
-function crossroads() {
-    unoverlayPage();
-    if (outcome){round(counter);}
-    else {startgame()}
-}
-
+//Loss function allows player to restart
 function loss(){
     overlayPage();
     document.getElementById('exclaim').innerHTML = 'Oops!'
     document.getElementById('scr').innerHTML = `${score}`;
-    nextLevel.innerHTML = 'Restart';
+    playbut.innerHTML = 'Restart';
+    playbut.disabled = false;
 }
+
+//Onclick function to close overlay and start next game/level depending on outcome
+function crossroads() {
+    unoverlayPage();
+    if (outcome){round(counter);}
+    else {initial()}
+}
+
+
+// Function which initialises all values and starts the game
+function initial(){
+    counter = 1;
+    score = 0;
+    document.getElementById("scr").innerHTML = `${score}`;
+    console.log(counter);
+    round(counter);
+    
+}
+
+// Function which conducts each level
 function round(roundNo){
     
-    nextLevel.removeEventListener("click",() => {
-        unoverlayPage();
-        round(counter);});
+    //Setting outcome to false and disabling play button and tile animation
     outcome = false;
     playbut.disabled = true;
     playbut.innerHTML='Playing.....';
+    playbut.classList.remove("boxclick");
     tiles.forEach(tile => tile.removeEventListener('click',play));
-    console.log("step1")
 
+    //Initialising JSON objects for pattern and user input and generating pattern
     selected = 0;
     tileStrokes = generateTrack();
     userStrokes = generateTrack();
-    console.log('step2');
     generateTile(roundNo , tileStrokes)
     console.log(tileStrokes);
 
+    // Runs an event listener for user input after time required for pattern to display on screen
     setTimeout( ()=>{
         tiles.forEach(tile => tile.addEventListener("click", userInput));},
         roundNo*800);
     return 0;
 }
 
-function reset(){
-    playbut.disabled = false;
-    playbut.innerHTML='Play';
-}
-
-
-
-
-playbut.addEventListener('click',startgame);
-
-
-function startgame(){
-    counter = 1;
-    score = 0;
-    playbut.removeEventListener('click',startgame);
-    document.getElementById("scr").innerHTML = `${score}`;
-    console.log(counter);
-    round(counter);
-    
-}
 
