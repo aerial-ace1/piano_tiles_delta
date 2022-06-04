@@ -9,16 +9,15 @@
 </head>
 <body>
 
-    <section class="navbar top" >
-        <div id="name"><a href="Piano_tiles.html">Piano Tiles</a></div>
-    </section>    
+     <section class="navbar top" >
+        <div id="name"><a href="multiplayer.html">Piano Tiles Multiplayer</a></div>
+        
+     </section>
     <section class="navbar">
+        <div id="name"><a href="Piano_tiles.html">Piano Tiles</a></div>
         <div id="rulelink"><a href="#HowToPlay">How to Play?</a></div>
-        <div id="name"><a href="multiplayer.html">Multiplayer</a></div>
-        <div><a href="#LeaderBoard">LeaderBoard</a></div>
     </section>
 
-    
     <div id="nextbox">
         <span id="exclaim"></span>
     </div>
@@ -148,15 +147,17 @@
         </button>
       </div>
     </section>
+
+    <br>
+    <br>
+
     <section id="playbox">
-      <div id="time">Timer:<span id = 'seconds'></span></div>
-      <button id="hacker">
-         <form><input  id= 'hackerTick' type="checkbox">Hacker</form>
+            
+    <div id="time">Timer:<span id = 'seconds'></span></div>
+    
+      <button id="play">
+        Set Pattern
       </button>
-      <button id="play" onclick="crossroads()">
-        Play
-      </button>
-      <button disabled id="scrbut">Score: <span id="scr"></span></button>
     </section>
 
     <section class="navbar" id = "HowToPlay">
@@ -167,31 +168,18 @@
 
     <section id ='rules'>
             <ol>
-                    <li>Press Play</li>
-                    <li>Remember the tiles that lit up</li>
-                    <li>Click on all the those tile and go to the next round</li>
-                    <li>Number of tiles increases by 1 for each round</li>
-                    <li>Hacker Mode requires you to press keys in the same order 
-                            they lit up but gives double points</li>
-                    <li>Play and make your way onto the LeaderBoard</li>
+                    <li>Press Set Pattern</li>
+                    <li>Player 1 should click on the tiles to set the pattern</li>
+                    <li>Then click on End Pattern</li>
+                    <li>Now Player 2 should click the tiles in that order to beat the agme</li>
+                    <li>Play and test the other player's memeory power</li>
             </ol>
     </section>
 
-    <section class="navbar" id = "LeaderBoard">
-        <div>
-                LeaderBoard
-        </div>
-    </section>
-    <br>
-    <section id="standings">
-        <div class="lead">1. <span id="first"></span></div>
-        <div class="lead">2. <span id="second"></span></div>
-        <div class="lead">3. <span id="third"></span></div>
-    </section>
 
     <audio id="tilepress" src="Audio/tileplay.wav"></audio>
     <audio id="end" src="Audio/end.wav"></audio>
     <audio id="win" src="Audio/win.wav"></audio>
-    <script src="script_hacker_enabled_style.js"></script>
-    <script src="script_hacker_enabled.js"></script>
+    <script src="multilplayer_script.js"></script>
+    <script src="multiplayer_style_script.js"></script>
 </body>
