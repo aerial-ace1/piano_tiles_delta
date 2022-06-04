@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset=utf-8>
   <title>Piano Tiles Game (N)</title>
   <link rel="stylesheet" href="stylenormal.css">
-  
+  <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+
 </head>
 <body>
-    
-        <section class="navbar">
+
+    <section class="navbar">
         <div id="name"><a href="normal.html">Piano Tiles</a></div>
-        <div><a href="#How_to_Play">How to Play?</a></div>
+        <div><a href="#HowToPlay">How to Play?</a></div>
+        <div><a href="#LeaderBoard">LeaderBoard</a></div>
     </section>
 
-    <br>
-    <br>
-    <br>
-    <br>
+
+    <div id="time">Timer:<span id = 'seconds'></span></div>
     
     <div id="nextbox">
         <span id="exclaim"></span>
@@ -36,6 +36,12 @@
         <button data-key='A4' class='tile'>
                 &#9836
         </button>
+        <button data-key='A5' class='tile  ' >
+                &#119134
+        </button>
+        <button data-key='A6' class='tile  ' >
+                &#119136
+        </button>
       </div>
 
       <div id="row2">
@@ -50,6 +56,12 @@
         </button>
         <button data-key='B4' class='tile'>
                 &#119082
+        </button>
+        <button data-key='B5' class='tile  ' >
+                &#119136
+        </button>
+        <button data-key='B6' class='tile  ' >
+                &#119137
         </button>
       </div>
       
@@ -66,6 +78,12 @@
         <button data-key='C4' class='tile'>
                 &#119074
         </button>
+        <button data-key='C5' class='tile  ' >
+                &#119138
+        </button>
+        <button data-key='C6' class='tile  ' >
+                &#119139
+        </button>
       </div>
 
       <div id="row4">
@@ -81,22 +99,102 @@
         <button data-key='D4' class='tile'>
                 &#119046
         </button>
+        <button data-key='D5' class='tile  ' >
+                &#119140
+        </button>
+        <button data-key='D6' class='tile  ' >
+                &#119042
+        </button>
       </div>
-        
+      <div id="row5">
+        <button data-key='E1' class='tile  '>
+                &#119043
+        </button>
+        <button data-key='E2' class='tile  '>
+                &#119044
+        </button>
+        <button data-key='E3' class='tile  '>
+                &#119045
+        </button>
+        <button data-key='E4' class='tile  '>
+                &#119047
+        </button>
+        <button data-key='E5' class='tile  '>
+                &#119048
+        </button>
+        <button data-key='E6' class='tile  '>
+                &#119132
+        </button> 
+      </div>
+      <div id="row6">
+        <button data-key='F1' class='tile  '>
+                &#119133
+        </button>
+        <button data-key='F2' class='tile  '>
+                &#119062
+        </button>
+        <button data-key='F3' class='tile '>
+                &#119051
+        </button>
+        <button data-key='F4' class='tile  '>
+                &#127900
+        </button>
+        <button data-key='F5' class='tile  '>
+                &#127901
+        </button>
+        <button data-key='F6' class='tile  '>
+                &#119061
+        </button>
+      </div>
+
+      
 
 
     </section>
 
     <section id="playbox">
+      <button id="hacker">
+         <form><input  id= 'hackerTick' type="checkbox">Hacker</form>
+      </button>
       <button id="play" onclick="crossroads()">
         Play
       </button>
-      <br>
-      <br>
       <button disabled id="scrbut">Score: <span id="scr"></span></button>
     </section>
 
-    <section id="How_to_Play">How to play</section>
+    <section class="navbar" id = "HowToPlay">
+        <div>
+                How to Play?
+        </div>
+    </section>
+
+    <section id ='rules'>
+            <ol>
+                    <li>Press Play</li>
+                    <li>Remember the tiles that lit up</li>
+                    <li>Click on all the those tile and go to the next round</li>
+                    <li>Number of tiles increases by 1 for each round</li>
+                    <li>Hacker Mode requires you to press keys in the same order 
+                            they lit up but gives double points</li>
+                    <li>Play and make your way onto the LeaderBoard</li>
+            </ol>
+    </section>
+
+    <section class="navbar" id = "LeaderBoard">
+        <div>
+                LeaderBoard
+        </div>
+    </section>
+    <br>
+    <section id="standings">
+        <div class="lead">1. <span id="first"></span></div>
+        <div class="lead">2. <span id="second"></span></div>
+        <div class="lead">3. <span id="third"></span></div>
+    </section>
+
+    <audio id="tilepress" src="Audio/tileplay.wav"></audio>
+    <audio id="end" src="Audio/end.wav"></audio>
+    <audio id="win" src="Audio/win.wav"></audio>
     <script src="scriptnormal.js"></script>
     <script src="scriptnormalstyle.js"></script>
 </body>

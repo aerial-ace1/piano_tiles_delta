@@ -1,12 +1,11 @@
 a=["A","B","C","D"]
 for i in a:
     for j in range(5,7):
-        print(f"<div data-key='{i}{j}' class='tile hacker' >\n\tDo\n</div>")
-a.append("E")
-a.append("F")
-for i in a:
+        print(f"<button data-key='{i}{j}' class='tile none' >\n\tDo\n</button>")
+b=["E","F"]
+for i in b:
     for j in range(1,7):
-        print(f"<div data-key='{i}{j}' class='tile hacker'>\n\tDo\n</div>")
+        print(f"<button data-key='{i}{j}' class='tile none'>\n\tDo\n</button>")
 
 
 counter =1

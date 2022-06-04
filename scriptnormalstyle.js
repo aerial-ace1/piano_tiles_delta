@@ -16,6 +16,30 @@ playstyle.addEventListener("mouseout",function(){
     playstyle.classList.remove("boxclick");
 })
 
+//Function which activates click animation of tile given tile or tile.event
+function play(tile){
+    
+    // Checking if given object is a tile or tile event
+    if( (typeof tile.target) == 'undefined'){
+        var transitionTile = tile;
+    }
+    else{
+        var transitionTile = tile.target;
+    }
+
+    let audio = document.querySelector('#tilepress');
+    audio.currentTime = 0;
+    audio.play();
+
+    // Applying transition
+    transitionTile.classList.add('boxclick');
+    transitionTile.classList.remove('boxhover');
+    transitionTile.addEventListener('transitionend', function(e) {
+        e.target.classList.remove('boxclick');
+    });
+    return 0;
+}
+
 // Styling for Overlay Page
 function overlayPage(){
     document.getElementById('nextbox').style.display = 'flex';
