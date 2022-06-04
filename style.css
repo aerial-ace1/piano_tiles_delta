@@ -1,4 +1,4 @@
-html{
+html, body{
     background: url('./background.jpg');
     color: white;
     margin: 0px;
@@ -7,25 +7,72 @@ html{
 
 }
 
+@media (orientation: landscape){
+    .navbar{
+        height: 50px;
+        width: 100vw;
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+    }
+
+    #gamegrid{
+        position: relative;
+        left: 30%;
+        height: 80vh;
+        width: 35vw;
+    }
+
+    #playbox{
+        display: flex;
+        flex-flow: row;
+        align-items:center;
+        align-content: center;
+        justify-content: space-around;
+    }
+}
+
+@media (orientation: portrait){
+    .navbar{
+        height: 150px;
+        width: 100vw;
+        
+        display: flex;
+        flex: 1;
+        flex-flow: column wrap;
+        justify-content: space-around;
+        align-items: center;
+        align-content: center;
+    }
+
+    #gamegrid{
+        position: relative;
+        height: 55vh;
+        width: -4%;
+        width: 5vw;
+    }
+
+    #playbox{
+        display: flex;
+        flex-flow: column;
+        align-items:center;
+        align-content: center;
+        justify-content: space-around;
+    }
+}
+
 .navbar{
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
-    height: 50px;
-    width: 100%;
     padding: auto;
     z-index: 4;
-
     background-color: black;
     font-family: monospace;
-    font-size: 30px;
-
-    display: flex;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    align-content: center;
+    font-size: 35px;
 }
 
 .navbar div a{
@@ -52,11 +99,6 @@ html{
     margin: 10px;
     padding: 10px;
     justify-content: center;
-
-    position: relative;
-    left: 30%;
-    height: 80vh;
-    width: 35vw;
 }
 
 .tile{
@@ -87,16 +129,11 @@ html{
     height: 120px;
     padding: 10px;
     margin: 10px;
-
-    display: flex;
-    flex-flow: row;
-    align-items:center;
-    align-content: center;
-    justify-content: space-around;
 }
 
 #play,#scrbut,.lead , #hacker , #time{
     text-align: center;
+    font-size: x-large;
     justify-content: center;
     border: .4rem solid black;
     border-radius: .5rem;
@@ -120,7 +157,7 @@ html{
 #nextbox{
     position: absolute;
     left: 42%;
-    top: 62%;
+    top: 50%;
     background: rgba(245, 245, 245, 0.731);
     border: .4rem solid black;
     text-shadow: 0 0 .5rem black;
@@ -148,13 +185,23 @@ html{
     display: none;
 }
 
+#rules{
+    width: 100vw;
+}
 #rules ol{
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-content: center;
     align-items: center;
+    font-size: x-large;
     margin: 10px;
     padding: 10px;
 
 }
+
+li{
+    padding: 5px;
+    margin: 5px;
+}
+
